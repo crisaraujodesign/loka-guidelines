@@ -49,11 +49,11 @@ export function dropdownSpecs({ variant }) {
   };
 }
 
-// Live Dropdown preview — the search-and-select control on its own, split by
-// mode. Multi-select is the Loka Figma "Dropdown" component (node 6916:50169)
-// in full: a three-selection ceiling, ticked rows, and tags underneath.
-// Single-select is the same control simplified to one value, closing on pick —
-// what the Input Field's own Select type embeds.
+// Live Input Dropdown preview — the search-and-select control on its own,
+// split by mode. Multi-select is the Loka Figma "Dropdown" component (node
+// 6916:50169) in full: a three-selection ceiling, ticked rows, and tags
+// underneath. Single-select is the same control simplified to one value,
+// closing on pick — what the Input Field's own Select type embeds.
 export function DropdownPreview({ variant, bestPractices, onState }) {
   const mode = toMode(variant);
 
@@ -82,7 +82,7 @@ export function DropdownPreview({ variant, bestPractices, onState }) {
 
 // ── Copyable output ─────────────────────────────────────────────────────────
 
-const CLASS = "loka-dropdown";
+const CLASS = "loka-input-dropdown";
 
 const CARET_URI =
   `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' ` +
@@ -127,7 +127,7 @@ export function dropdownCss() {
 // ceiling and tags. Its full spec lives in the AI prompt instead.
 export function dropdownHtmlSnippet({ variant }) {
   const mode = toMode(variant);
-  const id = "dropdown-demo";
+  const id = "input-dropdown-demo";
 
   const control =
     `<select id="${id}" class="${CLASS}__control"${mode === "multi" ? " multiple" : ""}>\n` +
@@ -148,14 +148,14 @@ export function dropdownHtmlSnippet({ variant }) {
     "     see the AI prompt tab for its spec. -->",
   ].join("\n");
 
-  return htmlDocument({ title: `Dropdown — ${variant}`, css: dropdownCss(), markup });
+  return htmlDocument({ title: `Input Dropdown — ${variant}`, css: dropdownCss(), markup });
 }
 
 export function dropdownPromptSnippet({ variant }) {
   const mode = toMode(variant);
 
   return specPrompt({
-    component: "Dropdown",
+    component: "Input Dropdown",
     config: variant,
     sections: [
       [
